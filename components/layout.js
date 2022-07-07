@@ -3,11 +3,15 @@ import Image from "next/image";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import Header from "./header";
 
 const name = "Your Name";
 export const siteTitle = "Next.js Sample Website";
 
-export default function Layout({ children, home }) {
+export const getLayout = (type) => (page) => <Layout type={type}>{page}</Layout>;
+// export const getLayout = (page) => <Layout>{page}</Layout>;
+
+export default function Layout({ children, home, type }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -22,6 +26,8 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <Header />
+      <div>type:{type}</div>
       <header className={styles.header}>
         {home ? (
           <>

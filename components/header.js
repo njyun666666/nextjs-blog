@@ -6,12 +6,16 @@ export default function Header() {
       header
       <input type="text" />
       <br />
-      <Link href="/posts/ssg-ssr">
-        <a>ssg-ssr</a>
+      <Link href="/">
+        <a>home</a>
       </Link>
       <br />
-      <Link href="/posts/pre-rendering">
-        <a>pre-rendering</a>
+      <Link href="/aaa">
+        <a>aaa</a>
+      </Link>
+      <br />
+      <Link href="/bbb">
+        <a>bbb</a>
       </Link>
     </div>
   );

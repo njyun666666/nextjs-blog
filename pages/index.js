@@ -1,11 +1,14 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Layout, { siteTitle, getLayout } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import cn from "classnames";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import Header from "../components/header";
+
+Home.getLayout = getLayout(11);
+// Home.getLayout = (page) => <Layout type={0}>{page}</Layout>;
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -20,11 +23,10 @@ export default function Home({ allPostsData }) {
   const type = "success"; // success error
 
   return (
-    <Layout home>
+    <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <Header />
       <section className={utilStyles.headingMd}>
         <p
           className={cn({
@@ -55,6 +57,6 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
-    </Layout>
+    </>
   );
 }
