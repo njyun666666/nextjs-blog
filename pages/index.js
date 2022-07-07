@@ -5,6 +5,7 @@ import cn from "classnames";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import Header from "../components/header";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -23,6 +24,7 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <Header />
       <section className={utilStyles.headingMd}>
         <p
           className={cn({
