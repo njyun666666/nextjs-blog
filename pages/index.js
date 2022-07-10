@@ -6,6 +6,9 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import Header from "../components/header";
+import { useDispatch } from "react-redux";
+import { setType } from "../components/layoutSlice";
+import { useEffect } from "react";
 
 Home.getLayout = getLayout(11);
 // Home.getLayout = (page) => <Layout type={0}>{page}</Layout>;
@@ -21,6 +24,11 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   const type = "success"; // success error
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setType(111));
+  }, []);
 
   return (
     <>

@@ -4,6 +4,8 @@ import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Header from "./header";
+import { useDispatch, useSelector } from "react-redux";
+import { setType } from "./layoutSlice";
 
 const name = "Your Name";
 export const siteTitle = "Next.js Sample Website";
@@ -12,6 +14,9 @@ export const getLayout = (type) => (page) => <Layout type={type}>{page}</Layout>
 // export const getLayout = (page) => <Layout>{page}</Layout>;
 
 export default function Layout({ children, home, type }) {
+  const type2 = useSelector((state) => state.layout.type);
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,6 +31,7 @@ export default function Layout({ children, home, type }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <button onClick={() => dispatch(setType(777))}>+{type2}</button>
       <Header />
       <div>type:{type}</div>
       <header className={styles.header}>
